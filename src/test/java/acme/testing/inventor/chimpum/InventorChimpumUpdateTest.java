@@ -52,7 +52,7 @@ public class InventorChimpumUpdateTest extends TestHarness {
 		
 		super.clickOnMenu("Inventor", "List chimpums");
 		super.checkListingExists();
-		super.clickOnListingRecord(recordIndex);
+		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("description", description);
