@@ -16,6 +16,9 @@ public interface InventorCHIMPUMRepository extends AbstractRepository{
 	@Query("select c from CHIMPUM c")
 	Collection<CHIMPUM> findAllCHIMPUM();
 	
+	@Query("select COUNT(c) from CHIMPUM c WHERE c.pattern LIKE :pattern%")
+	int findAllCHIMPUMBySimilarPattern(String pattern);
+	
 	@Query("select c from CHIMPUM c where c.id = :id")
 	CHIMPUM findCHIMPUMById(int id);
 	

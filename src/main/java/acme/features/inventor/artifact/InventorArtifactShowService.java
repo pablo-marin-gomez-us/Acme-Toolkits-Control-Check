@@ -64,6 +64,7 @@ public class InventorArtifactShowService implements AbstractShowService<Inventor
 		chimpums = this.repository.findAllCHIMPUM();
 		
 		model.setAttribute("chimpums", chimpums);
+		model.setAttribute("chimpum", entity.getChimpum());
 		
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "artifactType", "link");
 		List<String> types;

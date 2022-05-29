@@ -86,7 +86,17 @@ public class InventorCHIMPUMUpdateService  implements AbstractUpdateService<Inve
 		strongSpamThreshold = this.repository.findStrongSpamTreshold();
 		weakSpamThreshold = this.repository.findWeakSpamTreshold();
 		
-		
+		if(!errors.hasErrors("pattern")) {
+			
+			final String[] parts = entity.getPattern().split("-");
+			
+			final int similar= this.repository.findAllCHIMPUMBySimilarPattern(parts[0]);
+			
+			
+			final int similarValue = Integer.valueOf(parts[parts.length-1]);
+			
+			errors.state(request, similarValue>similar, "pattern", "inventor.CHIMPUM.form.error.duplicated");
+		}
 		
 		if(!errors.hasErrors("title")) {
 			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getTitle())

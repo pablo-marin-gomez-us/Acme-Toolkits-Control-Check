@@ -20,6 +20,7 @@ public class InventorChimpumCreateTest extends TestHarness {
 		super.checkListingExists();
 		super.clickOnButton("Create");
 		super.checkFormExists();
+		super.fillInputBoxIn("pattern", pattern);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("description", description);
 		super.fillInputBoxIn("startDate", startDate);
@@ -55,6 +56,7 @@ public class InventorChimpumCreateTest extends TestHarness {
 		super.checkListingExists();
 		super.clickOnButton("Create");
 		super.checkFormExists();
+		super.fillInputBoxIn("pattern", pattern);
 		super.fillInputBoxIn("title", title);
 		super.fillInputBoxIn("description", description);
 		super.fillInputBoxIn("startDate", startDate);

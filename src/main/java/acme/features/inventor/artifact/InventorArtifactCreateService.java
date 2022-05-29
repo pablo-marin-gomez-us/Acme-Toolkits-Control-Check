@@ -42,15 +42,19 @@ public class InventorArtifactCreateService implements AbstractCreateService<Inve
 		
 		String chimpumPattern;
 		CHIMPUM chimpum;
-
-		chimpumPattern = (String) request.getModel().getAttribute("chimpum");
-		chimpum = this.repository.findCHIMPUMByPattern(chimpumPattern);
 		
 		String type;
 		type = request.getModel().getString("type").toUpperCase();
 		entity.setArtifactType(ArtifactType.valueOf(type));
-		request.bind(entity, errors, "name", "code", "technology" , "description" , "retailPrice", "link");
+		
+		
+		if (ArtifactType.valueOf(type).equals(ArtifactType.TOOL)) {
+		chimpumPattern = (String) request.getModel().getAttribute("chimpum");
+		chimpum = this.repository.findCHIMPUMByPattern(chimpumPattern);
 		entity.setChimpum(chimpum);
+		}
+		
+		request.bind(entity, errors, "name", "code", "technology" , "description" , "retailPrice", "link");
 		
 	}
 
@@ -71,8 +75,11 @@ public class InventorArtifactCreateService implements AbstractCreateService<Inve
 		type = request.getModel().getString("type").toUpperCase();
 		entity.setArtifactType(ArtifactType.valueOf(type));
 		model.setAttribute("type", type);
+		if (ArtifactType.valueOf(type).equals(ArtifactType.TOOL)) {
 		request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "published", "link","chimpum","chimpum.pattern","chimpum.title", "chimpum.description", "chimpum.creationMoment","chimpum.startDate","chimpum.finishDate","chimpum.budget","chimpum.link");
-	
+		} else {
+			request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "published", "link");
+		}
 		
 	}
 

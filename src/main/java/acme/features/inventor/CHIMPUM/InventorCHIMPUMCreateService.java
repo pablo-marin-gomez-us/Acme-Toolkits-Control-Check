@@ -64,7 +64,13 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 		
 		final Date today = new Date();
 
-		final String date = new SimpleDateFormat("dd/MM/yyyy").format(today);
+		String date = new SimpleDateFormat("dd/MM/yyyy").format(today);
+		
+		int similar= this.repository.findAllCHIMPUMBySimilarPattern(date);
+		
+		similar++;
+		
+		date = date.concat("-").concat(String.valueOf(similar));
 		
 		result.setPattern(date);
 		
@@ -93,6 +99,17 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 		strongSpamThreshold = this.repository.findStrongSpamTreshold();
 		weakSpamThreshold = this.repository.findWeakSpamTreshold();
 		
+		if(!errors.hasErrors("pattern")) {
+		
+			final String[] parts = entity.getPattern().split("-");
+			
+			final int similar= this.repository.findAllCHIMPUMBySimilarPattern(parts[0]);
+			
+			
+			final int similarValue = Integer.valueOf(parts[parts.length-1]);
+			
+			errors.state(request, similarValue>similar, "pattern", "inventor.CHIMPUM.form.error.duplicated");
+		}
 		
 		
 		if(!errors.hasErrors("title")) {

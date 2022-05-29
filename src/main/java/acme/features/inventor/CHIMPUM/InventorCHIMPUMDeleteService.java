@@ -1,8 +1,6 @@
 package acme.features.inventor.CHIMPUM;
 
-import java.util.Calendar;
 import java.util.Collection;
-import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +12,6 @@ import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractDeleteService;
 import acme.roles.Inventor;
-import features.SpamDetector;
 
 @Service
 public class InventorCHIMPUMDeleteService  implements AbstractDeleteService<Inventor,CHIMPUM>{	
@@ -75,52 +72,6 @@ public class InventorCHIMPUMDeleteService  implements AbstractDeleteService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		SpamDetector spamDetector;
-		String strongSpamTerms;
-		String weakSpamTerms;
-		int strongSpamThreshold;
-		int weakSpamThreshold;
-		
-		spamDetector = new SpamDetector();
-		strongSpamTerms = this.repository.findStrongSpamTerms();
-		weakSpamTerms = this.repository.findWeakSpamTerms();
-		strongSpamThreshold = this.repository.findStrongSpamTreshold();
-		weakSpamThreshold = this.repository.findWeakSpamTreshold();
-		
-		
-		
-		if(!errors.hasErrors("title")) {
-			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getTitle())
-				&& !spamDetector.containsSpam(strongSpamTerms.split(","), strongSpamThreshold, entity.getTitle()),
-				"title", "inventor.CHIMPUM.form.error.spam");
-		}
-		
-		if(!errors.hasErrors("description")) {
-			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getDescription())
-				&& !spamDetector.containsSpam(strongSpamTerms.split(","), strongSpamThreshold, entity.getDescription()),
-				"description", "inventor.CHIMPUM.form.error.spam");
-		}
-		
-		if(!errors.hasErrors("startDate")) {
-			Calendar calendar;
-			
-			calendar = new GregorianCalendar();
-			calendar.add(Calendar.MONTH, 1);
-			calendar.add(Calendar.DAY_OF_MONTH, -1);
-			
-			errors.state(request, entity.getStartDate().after(calendar.getTime()), "startDate", "inventor.chimpum.form.error.startDate");
-		}
-		
-		if(!errors.hasErrors("finishDate")) {
-			Calendar calendar;
-			
-			calendar = new GregorianCalendar();
-			calendar.setTime(entity.getStartDate());
-			calendar.add(Calendar.DAY_OF_MONTH, 6);
-			
-			errors.state(request, entity.getFinishDate().after(calendar.getTime()), "finishDate", "inventor.chimpum.form.error.finishDate");
-		}
 		
 	}
 		

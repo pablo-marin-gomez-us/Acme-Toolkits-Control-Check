@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.CHIMPUM.CHIMPUM;
 import acme.entities.artifacts.Artifact;
+import acme.entities.artifacts.ArtifactType;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -50,13 +51,15 @@ public class InventorArtifactUpdateService implements AbstractUpdateService<Inve
 		
 		String chimpumPattern;
 		CHIMPUM chimpum;
-
+		
+		if (entity.getArtifactType().equals(ArtifactType.TOOL)) {
 		chimpumPattern = (String) request.getModel().getAttribute("chimpum");
 		chimpum = this.repository.findCHIMPUMByPattern(chimpumPattern);
-		
+		entity.setChimpum(chimpum);
+		}
 
 		request.bind(entity, errors, "name", "code", "technology" , "description" , "retailPrice", "artifactType", "link");
-		entity.setChimpum(chimpum);
+
 	}
 
 	@Override
@@ -70,10 +73,13 @@ public class InventorArtifactUpdateService implements AbstractUpdateService<Inve
 		chimpums = this.repository.findAllCHIMPUM();
 		
 		model.setAttribute("chimpums", chimpums);
+		model.setAttribute("chimpum", entity.getChimpum());
 		
-		
+		if (entity.getArtifactType().equals(ArtifactType.TOOL)) {
 		request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "artifactType", "published", "link","chimpum","chimpum.pattern","chimpum.title", "chimpum.description", "chimpum.creationMoment","chimpum.startDate","chimpum.finishDate","chimpum.budget","chimpum.link");
-
+		}else {
+			request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "published", "link");
+		}
 		
 	}
 

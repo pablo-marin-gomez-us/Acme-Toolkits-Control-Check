@@ -5,7 +5,7 @@
 <acme:form readonly="${readOnly}">
 	<h2><acme:message code="inventor.CHIMPUM.message.CHIMPUM"/></h2>
 	
-	<acme:input-textbox code="inventor.CHIMPUM.form.label.pattern" path="pattern" readonly="true"/>
+	<acme:input-textbox code="inventor.CHIMPUM.form.label.pattern" path="pattern"/>
 	<acme:input-textbox code="inventor.CHIMPUM.form.label.title" path="title"/>
 	<acme:input-textbox code="inventor.CHIMPUM.form.label.description" path="description"/>
 	<acme:input-moment code="inventor.CHIMPUM.form.label.creationMoment" path="creationMoment" readonly="true"/>
