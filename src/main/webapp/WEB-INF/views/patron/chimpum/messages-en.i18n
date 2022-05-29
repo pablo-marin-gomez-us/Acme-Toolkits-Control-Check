@@ -1,0 +1,34 @@
+patron.CHIMPUM.list.label.pattern= Pattern
+patron.CHIMPUM.list.label.title= Title
+patron.CHIMPUM.list.label.description= Description
+patron.CHIMPUM.list.label.startDate= Start Date
+patron.CHIMPUM.list.label.finishDate= Finish Date
+patron.CHIMPUM.list.label.budget= Budget
+patron.CHIMPUM.list.label.link= Link
+
+patron.CHIMPUM.message.CHIMPUM = Chimpum data
+
+patron.CHIMPUM.list.button.create = Create
+
+patron.CHIMPUM.form.label.pattern= Pattern
+patron.CHIMPUM.form.label.title= Title
+patron.CHIMPUM.form.label.creationMoment = Creation moment
+patron.CHIMPUM.form.label.description= Description
+patron.CHIMPUM.form.label.startDate= Start Date
+patron.CHIMPUM.form.label.finishDate= Finish Date
+patron.CHIMPUM.form.label.budget= Budget
+patron.CHIMPUM.form.label.link= Link
+
+patron.CHIMPUM.form.button.create = Create
+
+patron.CHIMPUM.form.button.artifact = List artifacts
+
+patron.artifact.form.button.update = Update
+patron.artifact.form.button.delete = Delete
+
+patron.CHIMPUM.form.error.duplicated = This code is taken
+patron.CHIMPUM.form.error.negative-budget = The price must be positive
+patron.CHIMPUM.form.error.negative-currency = The currency is incorrect
+patron.CHIMPUM.form.error.spam = Text contains spam
+patron.CHIMPUM.form.error.startDate = The start date should be later than a month from today
+patron.CHIMPUM.form.error.finishDate= The finish date and start date must be separated by alt least a week

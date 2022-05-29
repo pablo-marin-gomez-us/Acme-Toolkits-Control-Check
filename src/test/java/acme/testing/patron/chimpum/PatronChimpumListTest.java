@@ -1,4 +1,4 @@
-package acme.testing.inventor.chimpum;
+package acme.testing.patron.chimpum;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -7,17 +7,17 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class InventorChimpumListTest extends TestHarness {
+public class PatronChimpumListTest extends TestHarness {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/chimpum/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/patron/chimpum/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positive(final int recordIndex, final String pattern, final String title, final String description, final String creationMoment, final String startDate, final String finishDate, final String budget, final String link) {
 		
-		super.signIn("inventor1", "inventor1");
+		super.signIn("patron1", "patron1");
 		
-		super.clickOnMenu("Inventor", "List chimpums");
+		super.clickOnMenu("Patron", "List chimpums");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		
@@ -34,7 +34,7 @@ public class InventorChimpumListTest extends TestHarness {
 	@Order(20)
 	public void negative() {
 		
-		super.navigate("/inventor/chimpum/list");
+		super.navigate("/patron/chimpum/list");
 		super.checkErrorsExist();
 		
 	}

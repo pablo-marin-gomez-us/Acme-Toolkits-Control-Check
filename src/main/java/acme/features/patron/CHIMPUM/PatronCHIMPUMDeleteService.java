@@ -1,4 +1,4 @@
-package acme.features.inventor.CHIMPUM;
+package acme.features.patron.CHIMPUM;
 
 import java.util.Collection;
 
@@ -11,17 +11,17 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractDeleteService;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 @Service
-public class InventorCHIMPUMDeleteService  implements AbstractDeleteService<Inventor,CHIMPUM>{	
+public class PatronCHIMPUMDeleteService  implements AbstractDeleteService<Patron,CHIMPUM>{	
 	
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorCHIMPUMRepository repository;
+	protected PatronCHIMPUMRepository repository;
 	
-	// AbstractListService<Inventor, CHIMPUM> interface ---------------------------
+	// AbstractListService<Patron, CHIMPUM> interface ---------------------------
 	
 	@Override
 	public boolean authorise(final Request<CHIMPUM> request) {

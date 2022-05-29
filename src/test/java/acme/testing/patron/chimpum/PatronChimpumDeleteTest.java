@@ -1,20 +1,20 @@
-package acme.testing.inventor.chimpum;
+package acme.testing.patron.chimpum;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import acme.testing.TestHarness;
 
-public class InventorChimpumDeleteTest extends TestHarness {
+public class PatronChimpumDeleteTest extends TestHarness {
 	
 	
 	@Test
 	@Order(10)
 	public void positive() {
 		
-		super.signIn("inventor1", "inventor1");
+		super.signIn("patron1", "patron1");
 		
-		super.clickOnMenu("Inventor", "List chimpums");
+		super.clickOnMenu("Patron", "List chimpums");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(0);
@@ -26,7 +26,7 @@ public class InventorChimpumDeleteTest extends TestHarness {
 	@Order(20)
 	public void negative() {
 		
-		super.navigate("/inventor/chimpum/list");
+		super.navigate("/patron/chimpum/list");
 		super.checkErrorsExist();
 		
 	}

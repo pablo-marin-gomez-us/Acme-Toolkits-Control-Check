@@ -1,4 +1,4 @@
-package acme.testing.inventor.chimpum;
+package acme.testing.patron.chimpum;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,17 +11,17 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class InventorChimpumUpdateTest extends TestHarness {
+public class PatronChimpumUpdateTest extends TestHarness {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/chimpum/update.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/patron/chimpum/update.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positive(final int recordIndex, final String pattern, final String title, final String description, final String creationMoment, final String startDate, final String finishDate, final String budget, final String link) {
 		
-		super.signIn("inventor1", "inventor1");
+		super.signIn("patron1", "patron1");
 		
-		super.clickOnMenu("Inventor", "List chimpums");
+		super.clickOnMenu("Patron", "List chimpums");
 		super.checkListingExists();
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -58,7 +58,7 @@ public class InventorChimpumUpdateTest extends TestHarness {
 		super.checkNotErrorsExist();
 		super.sortListing(1, "desc");
 		
-		super.clickOnMenu("Inventor", "List chimpums");
+		super.clickOnMenu("Patron", "List chimpums");
 		super.checkListingExists();
 		
 		super.checkColumnHasValue(recordIndex, 1, title);
@@ -70,13 +70,13 @@ public class InventorChimpumUpdateTest extends TestHarness {
 	}
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/chimpum/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/patron/chimpum/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
 	public void negative(final int recordIndex, final String pattern, final String title, final String description, final String creationMoment, final String startDate, final String finishDate, final String budget, final String link) {
 		
-		super.signIn("inventor1", "inventor1");
+		super.signIn("patron1", "patron1");
 		
-		super.clickOnMenu("Inventor", "List chimpums");
+		super.clickOnMenu("Patron", "List chimpums");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
 		super.checkFormExists();

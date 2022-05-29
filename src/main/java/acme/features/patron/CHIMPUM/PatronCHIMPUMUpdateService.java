@@ -1,8 +1,6 @@
-package acme.features.inventor.CHIMPUM;
+package acme.features.patron.CHIMPUM;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,19 +10,19 @@ import acme.entities.CHIMPUM.CHIMPUM;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractCreateService;
-import acme.roles.Inventor;
+import acme.framework.services.AbstractUpdateService;
+import acme.roles.Patron;
 import features.SpamDetector;
 
 @Service
-public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inventor,CHIMPUM>{	
+public class PatronCHIMPUMUpdateService  implements AbstractUpdateService<Patron,CHIMPUM>{	
 	
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorCHIMPUMRepository repository;
+	protected PatronCHIMPUMRepository repository;
 	
-	// AbstractListService<Inventor, CHIMPUM> interface ---------------------------
+	// AbstractListService<Patron, CHIMPUM> interface ---------------------------
 	
 	@Override
 	public boolean authorise(final Request<CHIMPUM> request) {
@@ -49,6 +47,7 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 		assert entity != null;
 		assert model != null;
 		
+		
 				
 		request.unbind(entity, model, "pattern","title", "description", "creationMoment","startDate","finishDate","budget","link");
 		
@@ -56,30 +55,18 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 	}
 
 	@Override
-	public CHIMPUM instantiate(final Request<CHIMPUM> request) {
+	public CHIMPUM findOne(final Request<CHIMPUM> request) {
 		assert request != null;
 
 		CHIMPUM result;
-		result = new CHIMPUM();
-		
-		final Date today = new Date();
+		int id;
 
-		String date = new SimpleDateFormat("dd/MM/yyyy").format(today);
-		
-		int similar= this.repository.findAllCHIMPUMBySimilarPattern(date);
-		
-		similar++;
-		
-		date = date.concat("-").concat(String.valueOf(similar));
-		
-		result.setPattern(date);
-		
-		result.setCreationMoment(today);
-		
-		
-		
+		id = request.getModel().getInteger("id");
+		result = this.repository.findCHIMPUMById(id);
+
 		return result;
 	}
+
 
 	@Override
 	public void validate(final Request<CHIMPUM> request, final CHIMPUM entity, final Errors errors) {
@@ -100,7 +87,7 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 		weakSpamThreshold = this.repository.findWeakSpamTreshold();
 		
 		if(!errors.hasErrors("pattern")) {
-		
+			
 			final String[] parts = entity.getPattern().split("-");
 			
 			final int similar= this.repository.findAllCHIMPUMBySimilarPattern(parts[0]);
@@ -108,20 +95,19 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 			
 			final int similarValue = Integer.valueOf(parts[parts.length-1]);
 			
-			errors.state(request, similarValue>similar, "pattern", "inventor.CHIMPUM.form.error.duplicated");
+			errors.state(request, similarValue>similar, "pattern", "patron.CHIMPUM.form.error.duplicated");
 		}
-		
 		
 		if(!errors.hasErrors("title")) {
 			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getTitle())
 				&& !spamDetector.containsSpam(strongSpamTerms.split(","), strongSpamThreshold, entity.getTitle()),
-				"title", "inventor.CHIMPUM.form.error.spam");
+				"title", "patron.CHIMPUM.form.error.spam");
 		}
 		
 		if(!errors.hasErrors("description")) {
 			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getDescription())
 				&& !spamDetector.containsSpam(strongSpamTerms.split(","), strongSpamThreshold, entity.getDescription()),
-				"description", "inventor.CHIMPUM.form.error.spam");
+				"description", "patron.CHIMPUM.form.error.spam");
 		}
 		
 		if(!errors.hasErrors("startDate")) {
@@ -131,7 +117,7 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 			calendar.add(Calendar.MONTH, 1);
 			calendar.add(Calendar.DAY_OF_MONTH, -1);
 			
-			errors.state(request, entity.getStartDate().after(calendar.getTime()), "startDate", "inventor.CHIMPUM.form.error.startDate");
+			errors.state(request, entity.getStartDate().after(calendar.getTime()), "startDate", "patron.CHIMPUM.form.error.startDate");
 		}
 		
 		if(!errors.hasErrors("finishDate")) {
@@ -141,7 +127,7 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 			calendar.setTime(entity.getStartDate());
 			calendar.add(Calendar.DAY_OF_MONTH, 6);
 			
-			errors.state(request, entity.getFinishDate().after(calendar.getTime()), "finishDate", "inventor.CHIMPUM.form.error.finishDate");
+			errors.state(request, entity.getFinishDate().after(calendar.getTime()), "finishDate", "patron.CHIMPUM.form.error.finishDate");
 		}
 		
 		if (!errors.hasErrors("budget")) {
@@ -155,8 +141,8 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 					break;
 			}
 			
-			errors.state(request, entity.getBudget().getAmount() > 0 , "budget", "inventor.CHIMPUM.form.error.negative-budget");
-			errors.state(request,acceptedCurrency, "budget", "inventor.CHIMPUM.form.error.negative-currency");
+			errors.state(request, entity.getBudget().getAmount() > 0 , "budget", "patron.CHIMPUM.form.error.negative-budget");
+			errors.state(request,acceptedCurrency, "budget", "patron.CHIMPUM.form.error.negative-currency");
 		}
 		
 		
@@ -167,7 +153,7 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 	}
 
 	@Override
-	public void create(final Request<CHIMPUM> request, final CHIMPUM entity) {
+	public void update(final Request<CHIMPUM> request, final CHIMPUM entity) {
 		assert request != null;
 		assert entity != null;
 		

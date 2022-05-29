@@ -1,0 +1,35 @@
+patron.CHIMPUM.list.label.pattern= Patrón
+patron.CHIMPUM.list.label.title= Título
+patron.CHIMPUM.list.label.description= Descripción
+patron.CHIMPUM.list.label.startDate= Fecha de inicio
+patron.CHIMPUM.list.label.finishDate= Fecha de finalización
+patron.CHIMPUM.list.label.budget= Presupuesto
+patron.CHIMPUM.list.label.link= Enlace
+
+patron.CHIMPUM.message.CHIMPUM = Datos de Chimpum
+
+patron.CHIMPUM.list.button.create = Crear
+
+patron.CHIMPUM.form.label.pattern= Patrón
+patron.CHIMPUM.form.label.title= Título
+patron.CHIMPUM.form.label.creationMoment = Fecha de creación
+patron.CHIMPUM.form.label.description= Descripción
+patron.CHIMPUM.form.label.startDate= Fecha de inicio
+patron.CHIMPUM.form.label.finishDate= Fecha de finalización
+patron.CHIMPUM.form.label.budget= Presupuesto
+patron.CHIMPUM.form.label.link= Enlace
+
+patron.CHIMPUM.form.button.create = Crear
+
+patron.CHIMPUM.form.button.artifact = Listar artefactos
+
+
+patron.artifact.form.button.update = Actualizar
+patron.artifact.form.button.delete = Borrar
+
+patron.CHIMPUM.form.error.duplicated = Este código está tomado
+patron.CHIMPUM.form.error.negative-budget = El precio debe ser positivo
+patron.CHIMPUM.form.error.negative-currency = La moneda es incorrecta
+patron.CHIMPUM.form.error.spam = El texto contiene spam
+patron.CHIMPUM.form.error.startDate = La fecha de inicio debe ser posterior a un mes a partir de hoy
+patron.CHIMPUM.form.error.finishDate= La fecha de finalización y la de inicio deben estar separadas por al menos una semana

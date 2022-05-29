@@ -1,4 +1,4 @@
-package acme.features.inventor.CHIMPUM;
+package acme.features.patron.CHIMPUM;
 
 import java.util.Collection;
 
@@ -10,7 +10,7 @@ import acme.entities.artifacts.Artifact;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface InventorCHIMPUMRepository extends AbstractRepository{
+public interface PatronCHIMPUMRepository extends AbstractRepository{
 	
 
 	@Query("select c from CHIMPUM c")
