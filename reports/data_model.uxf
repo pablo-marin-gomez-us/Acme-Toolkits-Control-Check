@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>175</x>
-      <y>455</y>
+      <y>430</y>
       <w>140</w>
       <h>55</h>
     </coordinates>
@@ -23,7 +23,7 @@ Chirp
     <id>UMLNote</id>
     <coordinates>
       <x>45</x>
-      <y>475</y>
+      <y>450</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
@@ -37,7 +37,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>130</x>
-      <y>480</y>
+      <y>455</y>
       <w>55</w>
       <h>20</h>
     </coordinates>
@@ -48,7 +48,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>335</x>
-      <y>455</y>
+      <y>430</y>
       <w>160</w>
       <h>65</h>
     </coordinates>
@@ -67,7 +67,7 @@ Announcement
     <id>UMLClass</id>
     <coordinates>
       <x>1130</x>
-      <y>25</y>
+      <y>0</y>
       <w>230</w>
       <h>70</h>
     </coordinates>
@@ -87,7 +87,7 @@ Toolkit
     <id>UMLClass</id>
     <coordinates>
       <x>1135</x>
-      <y>230</y>
+      <y>205</y>
       <w>195</w>
       <h>85</h>
     </coordinates>
@@ -109,7 +109,7 @@ Artifact
     <id>UMLNote</id>
     <coordinates>
       <x>1335</x>
-      <y>135</y>
+      <y>110</y>
       <w>100</w>
       <h>25</h>
     </coordinates>
@@ -122,7 +122,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1265</x>
-      <y>140</y>
+      <y>115</y>
       <w>80</w>
       <h>20</h>
     </coordinates>
@@ -133,7 +133,7 @@ bg=blue</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>1335</x>
-      <y>165</y>
+      <y>140</y>
       <w>80</w>
       <h>25</h>
     </coordinates>
@@ -146,7 +146,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1265</x>
-      <y>165</y>
+      <y>140</y>
       <w>80</w>
       <h>25</h>
     </coordinates>
@@ -157,7 +157,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>585</x>
-      <y>360</y>
+      <y>335</y>
       <w>160</w>
       <h>50</h>
     </coordinates>
@@ -174,7 +174,7 @@ Patron
     <id>UMLClass</id>
     <coordinates>
       <x>840</x>
-      <y>360</y>
+      <y>335</y>
       <w>225</w>
       <h>90</h>
     </coordinates>
@@ -196,7 +196,7 @@ Patronage
     <id>UMLNote</id>
     <coordinates>
       <x>1000</x>
-      <y>470</y>
+      <y>445</y>
       <w>105</w>
       <h>40</h>
     </coordinates>
@@ -211,7 +211,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1045</x>
-      <y>445</y>
+      <y>420</y>
       <w>15</w>
       <h>35</h>
     </coordinates>
@@ -222,7 +222,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1080</x>
-      <y>360</y>
+      <y>335</y>
       <w>60</w>
       <h>45</h>
     </coordinates>
@@ -239,7 +239,7 @@ Status
     <id>UMLClass</id>
     <coordinates>
       <x>890</x>
-      <y>235</y>
+      <y>210</y>
       <w>150</w>
       <h>50</h>
     </coordinates>
@@ -256,7 +256,7 @@ Inventor
     <id>Relation</id>
     <coordinates>
       <x>740</x>
-      <y>375</y>
+      <y>350</y>
       <w>110</w>
       <h>25</h>
     </coordinates>
@@ -270,7 +270,7 @@ m2=1..*
     <id>Relation</id>
     <coordinates>
       <x>960</x>
-      <y>280</y>
+      <y>255</y>
       <w>50</w>
       <h>90</h>
     </coordinates>
@@ -284,7 +284,7 @@ Funds a ^</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>560</x>
-      <y>465</y>
+      <y>440</y>
       <w>270</w>
       <h>65</h>
     </coordinates>
@@ -304,7 +304,7 @@ PatronageReport
     <id>Relation</id>
     <coordinates>
       <x>825</x>
-      <y>445</y>
+      <y>420</y>
       <w>110</w>
       <h>70</h>
     </coordinates>
@@ -316,7 +316,7 @@ m2=0..n</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1345</x>
-      <y>230</y>
+      <y>205</y>
       <w>65</w>
       <h>40</h>
     </coordinates>
@@ -332,7 +332,7 @@ ArtifactType
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>315</y>
+      <y>290</y>
       <w>315</w>
       <h>80</h>
     </coordinates>
@@ -353,7 +353,7 @@ PatronDashboard
     <id>UMLClass</id>
     <coordinates>
       <x>1190</x>
-      <y>145</y>
+      <y>120</y>
       <w>80</w>
       <h>35</h>
     </coordinates>
@@ -368,7 +368,7 @@ Quantity
     <id>Relation</id>
     <coordinates>
       <x>1225</x>
-      <y>90</y>
+      <y>65</y>
       <w>35</w>
       <h>65</h>
     </coordinates>
@@ -382,7 +382,7 @@ Has ^</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1225</x>
-      <y>175</y>
+      <y>150</y>
       <w>35</w>
       <h>65</h>
     </coordinates>
@@ -396,7 +396,7 @@ Has v</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>340</x>
-      <y>320</y>
+      <y>295</y>
       <w>145</w>
       <h>75</h>
     </coordinates>
@@ -416,7 +416,7 @@ ConfigData
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>115</y>
+      <y>90</y>
       <w>350</w>
       <h>185</h>
     </coordinates>
@@ -450,7 +450,7 @@ AdministratorDashboard
     <id>UMLClass</id>
     <coordinates>
       <x>655</x>
-      <y>130</y>
+      <y>105</y>
       <w>50</w>
       <h>30</h>
     </coordinates>
@@ -463,7 +463,7 @@ bg=yellow</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>585</x>
-      <y>130</y>
+      <y>105</y>
       <w>50</w>
       <h>30</h>
     </coordinates>
@@ -476,7 +476,7 @@ bg=yellow</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>725</x>
-      <y>130</y>
+      <y>105</y>
       <w>50</w>
       <h>30</h>
     </coordinates>
@@ -489,7 +489,7 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>605</x>
-      <y>155</y>
+      <y>130</y>
       <w>85</w>
       <h>55</h>
     </coordinates>
@@ -500,7 +500,7 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>675</x>
-      <y>155</y>
+      <y>130</y>
       <w>15</w>
       <h>55</h>
     </coordinates>
@@ -511,7 +511,7 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>675</x>
-      <y>155</y>
+      <y>130</y>
       <w>85</w>
       <h>55</h>
     </coordinates>
@@ -522,7 +522,7 @@ bg=yellow</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>645</x>
-      <y>200</y>
+      <y>175</y>
       <w>70</w>
       <h>30</h>
     </coordinates>
@@ -535,7 +535,7 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>675</x>
-      <y>225</y>
+      <y>200</y>
       <w>15</w>
       <h>145</h>
     </coordinates>
@@ -546,7 +546,7 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>675</x>
-      <y>225</y>
+      <y>200</y>
       <w>225</w>
       <h>40</h>
     </coordinates>
@@ -557,7 +557,7 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1035</x>
-      <y>250</y>
+      <y>225</y>
       <w>110</w>
       <h>25</h>
     </coordinates>
@@ -572,7 +572,7 @@ Invents &gt;
     <id>UMLNote</id>
     <coordinates>
       <x>675</x>
-      <y>560</y>
+      <y>535</y>
       <w>255</w>
       <h>40</h>
     </coordinates>
@@ -587,7 +587,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>765</x>
-      <y>525</y>
+      <y>500</y>
       <w>15</w>
       <h>45</h>
     </coordinates>
@@ -598,7 +598,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1165</x>
-      <y>380</y>
+      <y>355</y>
       <w>360</w>
       <h>90</h>
     </coordinates>
@@ -612,7 +612,7 @@ CHIMPUM
 + creationMoment: Date {NotNull, Past, Temporal(TIMESTAMP)}
 + startDate: Date {NotNull, Temporal(TIMESTAMP)}
 + finishDate: Date {NotNull, Temporal(TIMESTAMP)}
-+ budget: Money
++ budget: Money {NotNull}
 + link: String {URL}
 </panel_attributes>
     <additional_attributes/>
@@ -621,7 +621,7 @@ CHIMPUM
     <id>Relation</id>
     <coordinates>
       <x>1240</x>
-      <y>305</y>
+      <y>280</y>
       <w>35</w>
       <h>85</h>
     </coordinates>
