@@ -271,10 +271,10 @@
 <h1><acme:message code="administrator.administrator-dashboard.form.title.CHIMPUM"/></h1>
 
 <table class="table table-sm">
-<caption><acme:message code="administrator.administrator-dashboard.form.title.total-CHIMPUMs"/></caption>
+<caption><acme:message code="administrator.administrator-dashboard.form.title.ratio-CHIMPUM"/></caption>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.administrator-dashboard.form.title.total-CHIMPUMs"/>
+			<acme:message code="administrator.administrator-dashboard.form.title.ratio-CHIMPUM"/>
 		</th>
 		<td>
 			<jstl:set var="value" value="${ratioOfARTIFACTSWithCHIMPUMP}"/>
