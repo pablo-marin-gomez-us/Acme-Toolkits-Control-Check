@@ -63,8 +63,8 @@ public interface AdministratorAdministratorDashboardRepository extends AbstractR
 	
 	//Methods for CHIMPUM --------------------------------------------
 	
-	@Query("select count(a) from Artifact a WHERE a.chimpum is not null")
-	int ratioOfARTIFACTSWithCHIMPUMP();
+	@Query("select count(a) from Artifact a WHERE a.chimpum is not null AND a.artifactType = 0")
+	int artifactsWithCHIMPUM();
 	
 	@Query("select c.budget.currency, avg(c.budget.amount) from CHIMPUM c group by c.budget.currency")
 	List<String> averageBudgetOfCHIMPUMPSGroupedByCurrency();

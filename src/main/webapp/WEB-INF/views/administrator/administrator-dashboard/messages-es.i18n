@@ -17,4 +17,7 @@ administrator.administrator-dashboard.form.title.proposed = Propuestos
 administrator.administrator-dashboard.form.title.accepted = Aceptados
 administrator.administrator-dashboard.form.title.denied = Denegados
 
+administrator.administrator-dashboard.form.title.CHIMPUM = Estadísticas sobre CHIMPUMs
+administrator.administrator-dashboard.form.title.ratio-CHIMPUM = Ratio de herramientas con chimpums en porcentaje
+
 administrator.administrator-dashboard.form.title.prueba = Esto es una prueba es
