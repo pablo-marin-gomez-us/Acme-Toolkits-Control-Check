@@ -1,4 +1,4 @@
-package acme.features.inventor.artifact;
+package acme.features.patron.artifact;
 
 import java.util.Collection;
 
@@ -9,15 +9,15 @@ import acme.entities.artifacts.Artifact;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 @Service
-public class InventorArtifactListByCHIMPUMService implements AbstractListService<Inventor, Artifact>{
+public class PatronArtifactListByCHIMPUMService implements AbstractListService<Patron, Artifact>{
 	
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorArtifactRepository repository;
+	protected PatronArtifactRepository repository;
 
 	// AbstractListService<Inventor, Artifact> interface ---------------------------
 	
