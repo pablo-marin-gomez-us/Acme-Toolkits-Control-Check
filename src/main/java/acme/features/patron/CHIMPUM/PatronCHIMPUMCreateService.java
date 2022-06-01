@@ -1,9 +1,9 @@
 package acme.features.patron.CHIMPUM;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,16 +63,6 @@ public class PatronCHIMPUMCreateService  implements AbstractCreateService<Patron
 		result = new CHIMPUM();
 		
 		final Date today = new Date();
-
-		String date = new SimpleDateFormat("dd/MM/yyyy").format(today);
-		
-		int similar= this.repository.findAllCHIMPUMBySimilarPattern(date);
-		
-		similar++;
-		
-		date = date.concat("-").concat(String.valueOf(similar));
-		
-		result.setPattern(date);
 		
 		result.setCreationMoment(today);
 		
@@ -100,15 +90,22 @@ public class PatronCHIMPUMCreateService  implements AbstractCreateService<Patron
 		weakSpamThreshold = this.repository.findWeakSpamTreshold();
 		
 		if(!errors.hasErrors("pattern")) {
-		
-			final String[] parts = entity.getPattern().split("-");
 			
-			final int similar= this.repository.findAllCHIMPUMBySimilarPattern(parts[0]);
+			final String patternWithDate = entity.getPatternDate();
+			final List<CHIMPUM> similar = this.repository.findAllCHIMPUMBySimilarPattern(entity.getPattern());
+
+			 boolean isAnyoneCompletelySimilar = false;
+			 
+			 for (final CHIMPUM c : similar) {
+				 if(patternWithDate.equals(c.getPatternDate())) {
+					 isAnyoneCompletelySimilar = true;
+					 break;
+				 }
+			 }
+
+
 			
-			
-			final int similarValue = Integer.valueOf(parts[parts.length-1]);
-			
-			errors.state(request, similarValue>similar, "pattern", "patron.CHIMPUM.form.error.duplicated");
+			errors.state(request, !isAnyoneCompletelySimilar, "pattern", "patron.CHIMPUM.form.error.duplicated");
 		}
 		
 		

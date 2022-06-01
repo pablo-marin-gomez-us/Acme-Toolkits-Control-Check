@@ -1,6 +1,7 @@
 package acme.entities.CHIMPUM;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -35,9 +36,10 @@ public class CHIMPUM extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Column(unique = true)
+	@Column(unique = false)
 	//@Pattern(regexp="^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$") //dd/mm/yyyy
-	@Pattern(regexp="^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}-(0|[1-9][0-9]?|100)$")
+	//@Pattern(regexp="^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}-(0|[1-9][0-9]?|100)$")
+	@Pattern(regexp = "[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String				pattern;
 	
 
@@ -68,6 +70,17 @@ public class CHIMPUM extends AbstractEntity {
 
 	@URL
 	protected String				link;
+	
+	// Derived attributes -----------------------------------------------------
+
+	public String getPatternDate() {
+
+		final String date = new SimpleDateFormat("dd/MM/yyyy").format(this.creationMoment);
+		return this.pattern.concat("-").concat(date);
+	}
+
+
+
 
 	// Relationships ----------------------------------------------------------
 

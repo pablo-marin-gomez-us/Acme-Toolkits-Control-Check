@@ -37,7 +37,7 @@ public class PatronCHIMPUMUpdateService  implements AbstractUpdateService<Patron
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "pattern","title", "description", "creationMoment","startDate","finishDate","budget","link");
+		request.bind(entity, errors, "title", "description", "creationMoment","startDate","finishDate","budget","link");
 		
 	}
 
@@ -86,17 +86,6 @@ public class PatronCHIMPUMUpdateService  implements AbstractUpdateService<Patron
 		strongSpamThreshold = this.repository.findStrongSpamTreshold();
 		weakSpamThreshold = this.repository.findWeakSpamTreshold();
 		
-		if(!errors.hasErrors("pattern")) {
-			
-			final String[] parts = entity.getPattern().split("-");
-			
-			final int similar= this.repository.findAllCHIMPUMBySimilarPattern(parts[0]);
-			
-			
-			final int similarValue = Integer.valueOf(parts[parts.length-1]);
-			
-			errors.state(request, similarValue>similar, "pattern", "patron.CHIMPUM.form.error.duplicated");
-		}
 		
 		if(!errors.hasErrors("title")) {
 			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getTitle())
@@ -114,6 +103,7 @@ public class PatronCHIMPUMUpdateService  implements AbstractUpdateService<Patron
 			Calendar calendar;
 			
 			calendar = new GregorianCalendar();
+			calendar.setTime(entity.getCreationMoment());
 			calendar.add(Calendar.MONTH, 1);
 			calendar.add(Calendar.DAY_OF_MONTH, -1);
 			

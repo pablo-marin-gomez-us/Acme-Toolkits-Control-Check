@@ -5,7 +5,7 @@
 <acme:form readonly="${readOnly}">
 	<h2><acme:message code="patron.CHIMPUM.message.CHIMPUM"/></h2>
 	
-	<acme:input-textbox code="patron.CHIMPUM.form.label.pattern" path="pattern"/>
+	<acme:input-textbox code="patron.CHIMPUM.form.label.pattern" path="pattern" readonly="${acme:anyOf(command, 'show, update')}"/>
 	<acme:input-textbox code="patron.CHIMPUM.form.label.title" path="title"/>
 	<acme:input-textbox code="patron.CHIMPUM.form.label.description" path="description"/>
 	<acme:input-moment code="patron.CHIMPUM.form.label.creationMoment" path="creationMoment" readonly="true"/>
