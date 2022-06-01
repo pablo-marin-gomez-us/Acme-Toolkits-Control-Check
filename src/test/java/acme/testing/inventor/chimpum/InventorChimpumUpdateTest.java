@@ -26,7 +26,6 @@ public class InventorChimpumUpdateTest extends TestHarness {
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("pattern", pattern);
 		super.fillInputBoxIn("description", description);
 		
 		Calendar calendar;
@@ -81,7 +80,6 @@ public class InventorChimpumUpdateTest extends TestHarness {
 		super.clickOnListingRecord(0);
 		super.checkFormExists();
 		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("pattern", pattern);
 		super.fillInputBoxIn("description", description);
 		super.fillInputBoxIn("startDate", startDate);
 		super.fillInputBoxIn("finishDate", finishDate);

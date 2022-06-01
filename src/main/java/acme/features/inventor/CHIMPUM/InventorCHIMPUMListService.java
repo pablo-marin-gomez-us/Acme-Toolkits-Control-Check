@@ -53,8 +53,10 @@ public class InventorCHIMPUMListService implements AbstractListService<Inventor,
 			assert request != null;
 			assert entity != null;
 			assert model != null;
+			
+			model.setAttribute("pattern", entity.getPatternDate());
 
-			request.unbind(entity, model, "pattern","title","description","startDate","finishDate","budget","link");
+			request.unbind(entity, model,"title","description","startDate","finishDate","budget","link");
 		}
 
 

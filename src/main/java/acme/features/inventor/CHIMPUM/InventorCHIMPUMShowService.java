@@ -44,8 +44,10 @@ public class InventorCHIMPUMShowService implements AbstractShowService<Inventor,
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		model.setAttribute("pattern", entity.getPatternDate());
 
-		request.unbind(entity, model, "pattern","title", "description", "creationMoment","startDate","finishDate","budget","link");
+		request.unbind(entity, model,"title", "description", "creationMoment","startDate","finishDate","budget","link");
 	}
 
 
