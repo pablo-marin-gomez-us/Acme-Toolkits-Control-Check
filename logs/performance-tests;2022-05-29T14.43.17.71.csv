@@ -1,0 +1,4 @@
+timestamp,test-class,test-method,time,description,result
+"2022-05-29 14:42:30.433","acme.testing.inventor.artifact.InventorArtifactPublishTest","positiveTest",14416,""[1] recordIndex=0, name=AC Prueba"","OK"
+"2022-05-29 14:42:39.066","acme.testing.inventor.artifact.InventorArtifactPublishTest","negativeTest",8189,""[1] recordIndex=0, name=AZ Prueba, code=AFR-001-A, retailPrice=ASD -30"","OK"
+"2022-05-29 14:42:47.587","acme.testing.inventor.artifact.InventorArtifactPublishTest","negativeTest",8132,""[2] recordIndex=0, name=AZ Prueba, code=null, retailPrice=null"","OK"

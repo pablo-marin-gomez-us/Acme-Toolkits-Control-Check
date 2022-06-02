@@ -18,31 +18,32 @@ import acme.testing.TestHarness;
 public class AnyChirpListTest extends TestHarness {
 	
 	@Autowired
-    private AnyChirpRepository repository;
+	private AnyChirpRepository repository;
+	
+	@Override
+	@BeforeAll
+	public void beforeAll() {
+	    super.beforeAll();
+	    FactoryHelper.autowire(this);
+	    this.patchChirps();
+	}
+	
+	protected void patchChirps() {
+	    Collection<Chirp> chirps;
+	    Date moment = new Date();
+	    final Calendar calendar = Calendar.getInstance();
+	    calendar.setTime(moment);
+	    calendar.add(Calendar.DATE, -1);
+	    moment = calendar.getTime();
 
-    @Override
-    @BeforeAll
-    public void beforeAll() {
-        super.beforeAll();
-        FactoryHelper.autowire(this);
-        this.patchChirps();
-    }
-
-    protected void patchChirps() {
-        Collection<Chirp> chirps;
-        Date moment = new Date();
-        final Calendar calendar = Calendar.getInstance();
-        calendar.setTime(moment);
-        calendar.add(Calendar.DATE, -1);
-        moment = calendar.getTime();
-
-        chirps = this.repository.findAllChirp();
-        for (final Chirp chirp : chirps) {
-
-            chirp.setMoment(moment);
-            this.repository.save(chirp);
-        }
-    }
+	    chirps = this.repository.findAllChirp();
+	    for (final Chirp chirp : chirps) {
+	        
+	        chirp.setMoment(moment);
+	        this.repository.save(chirp);
+	    }
+	}
+	
 	
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/chirp/list.csv", encoding = "utf-8", numLinesToSkip = 1)

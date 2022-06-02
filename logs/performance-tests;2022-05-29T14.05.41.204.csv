@@ -1,0 +1,4 @@
+timestamp,test-class,test-method,time,description,result
+"2022-05-29 13:46:32.232","acme.testing.inventor.chimpum.InventorChimpumListTest","positive",7556,""[1] recordIndex=0, pattern=19/05/2022-1, title=Amazing CHIMPUM, description=Is Amazing at best, creationMoment=2022/05/19 12:00, startDate=2022/06/20 12:00, finishDate=2022/07/01 12:00, budget=EUR 60.00, link=https://www.google.com"","OK"
+"2022-05-29 13:46:37.642","acme.testing.inventor.chimpum.InventorChimpumListTest","positive",4859,""[2] recordIndex=1, pattern=29/05/2022-1, title=Amazing CHIMPUM 2, description=Is Amazing at best yeah, creationMoment=2022/05/20 12:00, startDate=2022/06/20 12:00, finishDate=2022/07/01 12:00, budget=EUR 200.00, link=https://www.google.com"","OK"
+"2022-05-29 13:46:38.836","acme.testing.inventor.chimpum.InventorChimpumListTest","negative",720,""negative()"","OK"

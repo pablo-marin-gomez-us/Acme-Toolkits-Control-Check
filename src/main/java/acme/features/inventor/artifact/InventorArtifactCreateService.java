@@ -1,8 +1,11 @@
 package acme.features.inventor.artifact;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.CHIMPUM.CHIMPUM;
 import acme.entities.artifacts.Artifact;
 import acme.entities.artifacts.ArtifactType;
 import acme.framework.components.models.Model;
@@ -36,10 +39,21 @@ public class InventorArtifactCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
+		String chimpumPattern;
+		CHIMPUM chimpum;
+		
 		String type;
 		type = request.getModel().getString("type").toUpperCase();
 		entity.setArtifactType(ArtifactType.valueOf(type));
+		
+		
+		if (ArtifactType.valueOf(type).equals(ArtifactType.TOOL)) {
+		chimpumPattern = (String) request.getModel().getAttribute("chimpum");
+		chimpum = this.repository.findCHIMPUMByPattern(chimpumPattern);
+		entity.setChimpum(chimpum);
+		}
+		
 		request.bind(entity, errors, "name", "code", "technology" , "description" , "retailPrice", "link");
 		
 	}
@@ -50,13 +64,22 @@ public class InventorArtifactCreateService implements AbstractCreateService<Inve
 		assert entity != null;
 		assert model != null;
 		
+		List<CHIMPUM> chimpums;
+		
+		chimpums = this.repository.findAllCHIMPUM();
+		
+		model.setAttribute("chimpums", chimpums);
+		
 		String type;
 		
 		type = request.getModel().getString("type").toUpperCase();
 		entity.setArtifactType(ArtifactType.valueOf(type));
 		model.setAttribute("type", type);
-		request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "published", "link");
-	
+		if (ArtifactType.valueOf(type).equals(ArtifactType.TOOL)) {
+		request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "published", "link","chimpum","chimpum.pattern","chimpum.title", "chimpum.description", "chimpum.creationMoment","chimpum.startDate","chimpum.finishDate","chimpum.budget","chimpum.link");
+		} else {
+			request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "published", "link");
+		}
 		
 	}
 
