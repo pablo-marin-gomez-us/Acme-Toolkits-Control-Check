@@ -24,7 +24,7 @@ public class InventorChimpumDeleteTest extends TestHarness {
 	
 	@Test
 	@Order(20)
-	public void negative() {
+	public void hacking() {
 		
 		super.navigate("/inventor/chimpum/list");
 		super.checkErrorsExist();

@@ -32,7 +32,7 @@ public class InventorChimpumListTest extends TestHarness {
 	
 	@Test
 	@Order(20)
-	public void negative() {
+	public void hacking() {
 		
 		super.navigate("/inventor/chimpum/list");
 		super.checkErrorsExist();
