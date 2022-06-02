@@ -32,7 +32,7 @@ public class PatronChimpumListTest extends TestHarness {
 	
 	@Test
 	@Order(20)
-	public void negative() {
+	public void hacking() {
 		
 		super.navigate("/patron/chimpum/list");
 		super.checkErrorsExist();

@@ -1,6 +1,7 @@
 package acme.testing.patron.chimpum;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -69,4 +70,15 @@ public class PatronChimpumCreateTest extends TestHarness {
 		super.checkErrorsExist();
 		
 	}
+	
+	@Test
+	@Order(30)
+	public void hacking() {
+
+		super.navigate("/patron/chimpum/create");
+		super.checkErrorsExist();
+
+	}
+
+
 }
