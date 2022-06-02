@@ -1,0 +1,2 @@
+timestamp,test-class,test-method,time,description,result
+"2022-05-29 14:38:04.44","acme.testing.inventor.artifact.InventorArtifactUpdateTest","positiveTest",12331,""[1] recordIndex=0, artifactType=COMPONENT, name=AC Prueba, code=XWC-173-T, technology=MySQL program, description=Database system, retailPrice=EUR 90.00, published=false, link=https://www.mariadb.com/"","A listing was expected, but doesn't exist"

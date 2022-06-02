@@ -1,0 +1,3 @@
+timestamp,test-class,test-method,time,description,result
+"2022-05-29 13:45:20.361","acme.testing.inventor.chimpum.InventorChimpumDeleteTest","positive",11584,""positive()"","OK"
+"2022-05-29 13:45:21.648","acme.testing.inventor.chimpum.InventorChimpumDeleteTest","negative",829,""negative()"","OK"

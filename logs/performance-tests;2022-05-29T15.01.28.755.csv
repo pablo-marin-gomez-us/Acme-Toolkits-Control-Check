@@ -1,0 +1,2 @@
+timestamp,test-class,test-method,time,description,result
+"2022-05-29 14:43:37.751","acme.testing.inventor.artifact.InventorArtifactListMineToolsTest","positiveTest",11563,""[1] recordIndex=0, artifactType=TOOL, name=MariaDB, code=ABC-123-T, technology=MySQL, description=Database gestion system, retailPrice=EUR 60.00, link=https://www.mariadb.com/"","OK"

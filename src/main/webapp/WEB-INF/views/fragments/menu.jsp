@@ -78,6 +78,7 @@
 		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">
 			<acme:menu-suboption code="master.menu.patron.patronages" action="/patron/patronage/list"/>
 			<acme:menu-suboption code="master.menu.patron.dashboard" action="/patron/patron-dashboard/show"/>
+			<acme:menu-suboption code="master.menu.patron.list-chimpum" action="/patron/chimpum/list"/>
 		</acme:menu-option>
   
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">
