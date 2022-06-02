@@ -29,4 +29,7 @@ public interface AnyChirpRepository extends AbstractRepository {
 	
 	@Query("select config.weakSpamTreshold from ConfigData config")
 	int findWeakSpamTreshold();
+	
+	@Query("select c from Chirp c")
+    Collection<Chirp> findAllChirp();
 }
