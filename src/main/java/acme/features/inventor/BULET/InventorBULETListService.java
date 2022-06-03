@@ -1,11 +1,11 @@
-package acme.features.inventor.CHIMPUM;
+package acme.features.inventor.BULET;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.CHIMPUM.CHIMPUM;
+import acme.entities.BULET.BULET;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.helpers.CollectionHelper;
@@ -13,17 +13,17 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorCHIMPUMListService implements AbstractListService<Inventor, CHIMPUM>{
+public class InventorBULETListService implements AbstractListService<Inventor, BULET>{
 	
 	// Internal state -------------------------------------------------------------------
 
 		@Autowired
-		protected InventorCHIMPUMRepository repository;
+		protected InventorBULETRepository repository;
 
 		// AbstractListService<Inventor, CHIMPUM> interface ---------------------------
 
 		@Override
-		public boolean authorise(final Request<CHIMPUM> request) {
+		public boolean authorise(final Request<BULET> request) {
 			assert request != null;
 
 
@@ -31,16 +31,16 @@ public class InventorCHIMPUMListService implements AbstractListService<Inventor,
 		}
 
 		@Override
-		public Collection<CHIMPUM> findMany(final Request<CHIMPUM> request) {
+		public Collection<BULET> findMany(final Request<BULET> request) {
 			assert request != null;
 
-			final Collection<CHIMPUM> chimpums;
-			chimpums = this.repository.findAllCHIMPUM();
+			final Collection<BULET> chimpums;
+			chimpums = this.repository.findAllBULET();
 			return chimpums;
 		}
 
 		@Override
-		public void unbind(final Request<CHIMPUM> request, final Collection<CHIMPUM> entities, final Model model) {
+		public void unbind(final Request<BULET> request, final Collection<BULET> entities, final Model model) {
 			assert request != null;
 			assert !CollectionHelper.someNull(entities);
 			assert model != null;
@@ -49,14 +49,14 @@ public class InventorCHIMPUMListService implements AbstractListService<Inventor,
 			
 		}
 		@Override
-		public void unbind(final Request<CHIMPUM> request, final CHIMPUM entity, final Model model) {
+		public void unbind(final Request<BULET> request, final BULET entity, final Model model) {
 			assert request != null;
 			assert entity != null;
 			assert model != null;
 			
-			model.setAttribute("pattern", entity.getPatternDate());
+			model.setAttribute("code", entity.getPatternDate());
 
-			request.unbind(entity, model,"title","description","startDate","finishDate","budget","link");
+			request.unbind(entity, model,"name","summary","startDate","finishDate","quota","link");
 		}
 
 

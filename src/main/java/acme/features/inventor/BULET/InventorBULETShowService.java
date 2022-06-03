@@ -1,53 +1,53 @@
-package acme.features.inventor.CHIMPUM;
+package acme.features.inventor.BULET;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.CHIMPUM.CHIMPUM;
+import acme.entities.BULET.BULET;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorCHIMPUMShowService implements AbstractShowService<Inventor, CHIMPUM>{
+public class InventorBULETShowService implements AbstractShowService<Inventor, BULET>{
 	
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorCHIMPUMRepository repository;
+	protected InventorBULETRepository repository;
 
 	// AbstractShowService<Inventor, CHIMPUM> interface --------------
 	
 	@Override
-	public boolean authorise(final Request<CHIMPUM> request) {
+	public boolean authorise(final Request<BULET> request) {
 		assert request != null;
 		
 		return true;
 	}
 
 	@Override
-	public CHIMPUM findOne(final Request<CHIMPUM> request) {
+	public BULET findOne(final Request<BULET> request) {
 		assert request != null;
 
 		int id;
 
 		id = request.getModel().getInteger("id");
-		final CHIMPUM result = this.repository.findCHIMPUMById(id);
+		final BULET result = this.repository.findBULETById(id);
 		
 
 		return result;
 	}
 	@Override
-	public void unbind(final Request<CHIMPUM> request, final CHIMPUM entity, final Model model) {
+	public void unbind(final Request<BULET> request, final BULET entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 		
-		model.setAttribute("pattern", entity.getPatternDate());
+		model.setAttribute("code", entity.getPatternDate());
 
-		request.unbind(entity, model,"title", "description", "creationMoment","startDate","finishDate","budget","link");
+		request.unbind(entity, model,"code","name", "summary", "creationMoment","startDate","finishDate","quota","link");
 	}
 
 

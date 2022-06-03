@@ -266,18 +266,18 @@
 	</jstl:forEach>
 </table>
 
-<!-- Showing CHIMPUMs data -->
+<!-- Showing BULETs data -->
 
-<h1><acme:message code="administrator.administrator-dashboard.form.title.CHIMPUM"/></h1>
+<h1><acme:message code="administrator.administrator-dashboard.form.title.BULET"/></h1>
 
 <table class="table table-sm">
-<caption><acme:message code="administrator.administrator-dashboard.form.title.ratio-CHIMPUM"/></caption>
+<caption><acme:message code="administrator.administrator-dashboard.form.title.ratio-BULET"/></caption>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.administrator-dashboard.form.title.ratio-CHIMPUM"/>
+			<acme:message code="administrator.administrator-dashboard.form.title.ratio-BULET"/>
 		</th>
 		<td>
-			<jstl:set var="value" value="${ratioOfARTIFACTSWithCHIMPUMP}"/>
+			<jstl:set var="value" value="${ratioOfARTIFACTSWithBULET}"/>
 			<acme:print value="${value}"/>
 		</td>
 	</tr>
@@ -291,7 +291,7 @@
 				<acme:print value="${currency}"/>
 			</th>
 			<td>
-				<jstl:set var="value" value="${averageBudgetOfCHIMPUMPSGroupedByCurrency.getOrDefault(currency,0.0)}"/>
+				<jstl:set var="value" value="${averageBudgetOfBULETSGroupedByCurrency.getOrDefault(currency,0.0)}"/>
 				<acme:print value="${value}"/>
 			</td>
 		</tr>
@@ -307,7 +307,7 @@
 				<acme:print value="${currency}"/>
 			</th>
 			<td>
-				<jstl:set var="value" value="${deviationBudgetOfCHIMPUMPSGroupedByCurrency.getOrDefault(currency,0.0)}"/>
+				<jstl:set var="value" value="${deviationBudgetOfBULETSGroupedByCurrency.getOrDefault(currency,0.0)}"/>
 				<acme:print value="${value}"/>
 			</td>
 		</tr>
@@ -323,7 +323,7 @@
 				<acme:print value="${currency}"/>
 			</th>
 			<td>
-				<jstl:set var="value" value="${minimumBudgetOfCHIMPUMPSGroupedByCurrency.getOrDefault(currency,0.0)}"/>
+				<jstl:set var="value" value="${minimumBudgetOfBULETSGroupedByCurrency.getOrDefault(currency,0.0)}"/>
 				<acme:print value="${value}"/>
 			</td>
 		</tr>
@@ -339,7 +339,7 @@
 				<acme:print value="${currency}"/>
 			</th>
 			<td>
-				<jstl:set var="value" value="${maximumBudgetOfCHIMPUMPSGroupedByCurrency.getOrDefault(currency,0.0)}"/>
+				<jstl:set var="value" value="${maximumBudgetOfBULETSGroupedByCurrency.getOrDefault(currency,0.0)}"/>
 				<acme:print value="${value}"/>
 			</td>
 		</tr>

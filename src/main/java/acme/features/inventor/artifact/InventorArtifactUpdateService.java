@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.CHIMPUM.CHIMPUM;
+import acme.entities.BULET.BULET;
 import acme.entities.artifacts.Artifact;
 import acme.entities.artifacts.ArtifactType;
 import acme.framework.components.models.Model;
@@ -49,16 +49,16 @@ public class InventorArtifactUpdateService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert errors != null;
 		
-		String chimpumPattern;
-		CHIMPUM chimpum;
+		String buletPattern;
+		BULET bulet;
 		
 		if (entity.getArtifactType().equals(ArtifactType.TOOL)) {
-		chimpumPattern = (String) request.getModel().getAttribute("chimpum");
-		chimpum = this.repository.findCHIMPUMByPattern(chimpumPattern);
-		entity.setChimpum(chimpum);
+		buletPattern = (String) request.getModel().getAttribute("bulet");
+		bulet = this.repository.findBULETByPattern(buletPattern);
+		entity.setBulet(bulet);
 		}
 
-		request.bind(entity, errors, "name", "code", "technology" , "description" , "retailPrice", "artifactType", "link");
+		request.bind(entity, errors, "name", "summary", "creationMoment","startDate","finishDate","quota","link");
 
 	}
 
@@ -68,15 +68,15 @@ public class InventorArtifactUpdateService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert model != null;
 		
-		List<CHIMPUM> chimpums;
+		List<BULET> chimpums;
 		
-		chimpums = this.repository.findAllCHIMPUM();
+		chimpums = this.repository.findAllBULETS();
 		
 		model.setAttribute("chimpums", chimpums);
-		model.setAttribute("chimpum", entity.getChimpum());
+		model.setAttribute("chimpum", entity.getBulet());
 		
 		if (entity.getArtifactType().equals(ArtifactType.TOOL)) {
-		request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "artifactType", "published", "link","chimpum","chimpum.pattern","chimpum.title", "chimpum.description", "chimpum.creationMoment","chimpum.startDate","chimpum.finishDate","chimpum.budget","chimpum.link");
+		request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "published", "link","bulet","chimpum.code","chimpum.name", "chimpum.summary", "chimpum.creationMoment","chimpum.startDate","chimpum.finishDate","chimpum.quota","chimpum.link");
 		}else {
 			request.unbind(entity, model,"name", "code", "technology" , "description" , "retailPrice", "published", "link");
 		}

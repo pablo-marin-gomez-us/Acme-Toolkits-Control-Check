@@ -1,0 +1,34 @@
+inventor.BULET.list.label.code= Pattern
+inventor.BULET.list.label.name= Name
+inventor.BULET.list.label.summary= Description
+inventor.BULET.list.label.startDate= Start Date
+inventor.BULET.list.label.finishDate= Finish Date
+inventor.BULET.list.label.quota= Budget
+inventor.BULET.list.label.link= Link
+
+inventor.BULET.message.BULET = Chimpum data
+
+inventor.BULET.list.button.create = Create
+
+inventor.BULET.form.label.code= Pattern
+inventor.BULET.form.label.name= Name
+inventor.BULET.form.label.creationMoment = Creation moment
+inventor.BULET.form.label.summary= Description
+inventor.BULET.form.label.startDate= Start Date
+inventor.BULET.form.label.finishDate= Finish Date
+inventor.BULET.form.label.quota= Budget
+inventor.BULET.form.label.link= Link
+
+inventor.BULET.form.button.create = Create
+
+inventor.BULET.form.button.artifact = List artifacts
+
+inventor.artifact.form.button.update = Update
+inventor.artifact.form.button.delete = Delete
+
+inventor.BULET.form.error.duplicated = This code is taken
+inventor.BULET.form.error.negative-quota = The quote must be positive
+inventor.BULET.form.error.negative-currency = The currency is incorrect
+inventor.BULET.form.error.spam = Text contains spam
+inventor.BULET.form.error.startDate = The start date should be later than a month from today
+inventor.BULET.form.error.finishDate= The finish date and start date must be separated by alt least a week

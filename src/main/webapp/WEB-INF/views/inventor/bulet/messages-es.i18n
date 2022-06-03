@@ -1,22 +1,22 @@
-inventor.CHIMPUM.list.label.pattern= Patrón
-inventor.CHIMPUM.list.label.title= Título
-inventor.CHIMPUM.list.label.description= Descripción
+inventor.CHIMPUM.list.label.code= Patrón
+inventor.CHIMPUM.list.label.name= Título
+inventor.CHIMPUM.list.label.summary= Descripción
 inventor.CHIMPUM.list.label.startDate= Fecha de inicio
 inventor.CHIMPUM.list.label.finishDate= Fecha de finalización
-inventor.CHIMPUM.list.label.budget= Presupuesto
+inventor.CHIMPUM.list.label.quota= Presupuesto
 inventor.CHIMPUM.list.label.link= Enlace
 
 inventor.CHIMPUM.message.CHIMPUM = Datos de Chimpum
 
 inventor.CHIMPUM.list.button.create = Crear
 
-inventor.CHIMPUM.form.label.pattern= Patrón
-inventor.CHIMPUM.form.label.title= Título
+inventor.CHIMPUM.form.label.code= Patrón
+inventor.CHIMPUM.form.label.name= Título
 inventor.CHIMPUM.form.label.creationMoment = Fecha de creación
-inventor.CHIMPUM.form.label.description= Descripción
+inventor.CHIMPUM.form.label.summary= Descripción
 inventor.CHIMPUM.form.label.startDate= Fecha de inicio
 inventor.CHIMPUM.form.label.finishDate= Fecha de finalización
-inventor.CHIMPUM.form.label.budget= Presupuesto
+inventor.CHIMPUM.form.label.quota= Presupuesto
 inventor.CHIMPUM.form.label.link= Enlace
 
 inventor.CHIMPUM.form.button.create = Crear
@@ -28,7 +28,7 @@ inventor.artifact.form.button.update = Actualizar
 inventor.artifact.form.button.delete = Borrar
 
 inventor.CHIMPUM.form.error.duplicated = Este código está tomado
-inventor.CHIMPUM.form.error.negative-budget = El precio debe ser positivo
+inventor.CHIMPUM.form.error.negative-quota = La cuota debe ser positivo
 inventor.CHIMPUM.form.error.negative-currency = La moneda es incorrecta
 inventor.CHIMPUM.form.error.spam = El texto contiene spam
 inventor.CHIMPUM.form.error.startDate = La fecha de inicio debe ser posterior a un mes a partir de hoy

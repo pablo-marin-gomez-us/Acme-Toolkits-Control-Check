@@ -1,4 +1,4 @@
-package acme.features.inventor.CHIMPUM;
+package acme.features.inventor.BULET;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.CHIMPUM.CHIMPUM;
+import acme.entities.BULET.BULET;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -17,50 +17,50 @@ import acme.roles.Inventor;
 import features.SpamDetector;
 
 @Service
-public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inventor,CHIMPUM>{	
+public class InventorBULETCreateService  implements AbstractCreateService<Inventor,BULET>{	
 	
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorCHIMPUMRepository repository;
+	protected InventorBULETRepository repository;
 	
 	// AbstractListService<Inventor, CHIMPUM> interface ---------------------------
 	
 	@Override
-	public boolean authorise(final Request<CHIMPUM> request) {
+	public boolean authorise(final Request<BULET> request) {
 		assert request != null;
 		
 		return true;
 	}
 
 	@Override
-	public void bind(final Request<CHIMPUM> request, final CHIMPUM entity, final Errors errors) {
+	public void bind(final Request<BULET> request, final BULET entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 		
-		request.bind(entity, errors, "pattern","title", "description", "creationMoment","startDate","finishDate","budget","link");
+		request.bind(entity, errors, "code","name", "summary", "creationMoment","startDate","finishDate","quota","link");
 		
 	}
 
 	@Override
-	public void unbind(final Request<CHIMPUM> request, final CHIMPUM entity, final Model model) {
+	public void unbind(final Request<BULET> request, final BULET entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 		
 				
-		request.unbind(entity, model, "pattern","title", "description", "creationMoment","startDate","finishDate","budget","link");
+		request.unbind(entity, model, "code","name", "summary", "creationMoment","startDate","finishDate","quota","link");
 		
 		
 	}
 
 	@Override
-	public CHIMPUM instantiate(final Request<CHIMPUM> request) {
+	public BULET instantiate(final Request<BULET> request) {
 		assert request != null;
 
-		CHIMPUM result;
-		result = new CHIMPUM();
+		BULET result;
+		result = new BULET();
 		
 		final Date today = new Date();
 		
@@ -72,7 +72,7 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 	}
 
 	@Override
-	public void validate(final Request<CHIMPUM> request, final CHIMPUM entity, final Errors errors) {
+	public void validate(final Request<BULET> request, final BULET entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -94,11 +94,11 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 		final String patternWithDate = entity.getPatternDate();
 		
 			
-			 final List<CHIMPUM> similar = this.repository.findAllCHIMPUMBySimilarPattern(entity.getPattern());
+			 final List<BULET> similar = this.repository.findAllBULETBySimilarPattern(entity.getCode());
 			 
 			 boolean isAnyoneCompletelySimilar = false;
 			
-			 for (final CHIMPUM c : similar) {
+			 for (final BULET c : similar) {
 				 if(patternWithDate.equals(c.getPatternDate())) {
 					 isAnyoneCompletelySimilar = true;
 					 break;
@@ -106,20 +106,20 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 			 }
 			 
 			 
-			errors.state(request, !isAnyoneCompletelySimilar, "pattern", "inventor.CHIMPUM.form.error.duplicated");
+			errors.state(request, !isAnyoneCompletelySimilar, "pattern", "inventor.BULET.form.error.duplicated");
 		}
 		
 		
-		if(!errors.hasErrors("title")) {
-			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getTitle())
-				&& !spamDetector.containsSpam(strongSpamTerms.split(","), strongSpamThreshold, entity.getTitle()),
-				"title", "inventor.CHIMPUM.form.error.spam");
+		if(!errors.hasErrors("name")) {
+			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getName())
+				&& !spamDetector.containsSpam(strongSpamTerms.split(","), strongSpamThreshold, entity.getName()),
+				"name", "inventor.BULET.form.error.spam");
 		}
 		
-		if(!errors.hasErrors("description")) {
-			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getDescription())
-				&& !spamDetector.containsSpam(strongSpamTerms.split(","), strongSpamThreshold, entity.getDescription()),
-				"description", "inventor.CHIMPUM.form.error.spam");
+		if(!errors.hasErrors("summary")) {
+			errors.state(request, !spamDetector.containsSpam(weakSpamTerms.split(","), weakSpamThreshold, entity.getSummary())
+				&& !spamDetector.containsSpam(strongSpamTerms.split(","), strongSpamThreshold, entity.getSummary()),
+				"summary", "inventor.BULET.form.error.spam");
 		}
 		
 		if(!errors.hasErrors("startDate")) {
@@ -129,7 +129,7 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 			calendar.add(Calendar.MONTH, 1);
 			calendar.add(Calendar.DAY_OF_MONTH, -1);
 			
-			errors.state(request, entity.getStartDate().after(calendar.getTime()), "startDate", "inventor.CHIMPUM.form.error.startDate");
+			errors.state(request, entity.getStartDate().after(calendar.getTime()), "startDate", "inventor.BULET.form.error.startDate");
 		}
 		
 		if(!errors.hasErrors("finishDate")) {
@@ -139,11 +139,11 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 			calendar.setTime(entity.getStartDate());
 			calendar.add(Calendar.DAY_OF_MONTH, 6);
 			
-			errors.state(request, entity.getFinishDate().after(calendar.getTime()), "finishDate", "inventor.CHIMPUM.form.error.finishDate");
+			errors.state(request, entity.getFinishDate().after(calendar.getTime()), "finishDate", "inventor.BULET.form.error.finishDate");
 		}
 		
-		if (!errors.hasErrors("budget")) {
-			final String currency = entity.getBudget().getCurrency();
+		if (!errors.hasErrors("quota")) {
+			final String currency = entity.getQuota().getCurrency();
 			final String currencyAvaliable = this.repository.acceptedCurrencies();
 			boolean acceptedCurrency = false;
 			
@@ -153,8 +153,8 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 					break;
 			}
 			
-			errors.state(request, entity.getBudget().getAmount() > 0 , "budget", "inventor.CHIMPUM.form.error.negative-budget");
-			errors.state(request,acceptedCurrency, "budget", "inventor.CHIMPUM.form.error.negative-currency");
+			errors.state(request, entity.getQuota().getAmount() > 0 , "quota", "inventor.BULET.form.error.negative-budget");
+			errors.state(request,acceptedCurrency, "quota", "inventor.BULET.form.error.negative-currency");
 		}
 		
 		
@@ -165,7 +165,7 @@ public class InventorCHIMPUMCreateService  implements AbstractCreateService<Inve
 	}
 
 	@Override
-	public void create(final Request<CHIMPUM> request, final CHIMPUM entity) {
+	public void create(final Request<BULET> request, final BULET entity) {
 		assert request != null;
 		assert entity != null;
 		

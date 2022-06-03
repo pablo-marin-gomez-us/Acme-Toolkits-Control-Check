@@ -12,7 +12,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorArtifactListByCHIMPUMService implements AbstractListService<Inventor, Artifact>{
+public class InventorArtifactListByBULETService implements AbstractListService<Inventor, Artifact>{
 	
 	// Internal state ---------------------------------------------------------
 
@@ -32,9 +32,9 @@ public class InventorArtifactListByCHIMPUMService implements AbstractListService
 	public Collection<Artifact> findMany(final Request<Artifact> request) {
 		
 		int masterId;
-		masterId = request.getModel().getInteger("chimpumId");
+		masterId = request.getModel().getInteger("buletId");
 		
-		return this.repository.findToolsAndComponentsByCHIMPUMId(masterId);
+		return this.repository.findToolsAndComponentsByBULETId(masterId);
 		
 	}
 

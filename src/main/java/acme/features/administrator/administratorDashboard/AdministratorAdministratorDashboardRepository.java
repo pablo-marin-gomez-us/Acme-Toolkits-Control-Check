@@ -63,20 +63,20 @@ public interface AdministratorAdministratorDashboardRepository extends AbstractR
 	
 	//Methods for CHIMPUM --------------------------------------------
 	
-	@Query("select count(a) from Artifact a WHERE a.chimpum is not null AND a.artifactType = 0")
-	int artifactsWithCHIMPUM();
+	@Query("select count(a) from Artifact a WHERE a.bulet is not null AND a.artifactType = 1")
+	int artifactsWithBULET();
 	
-	@Query("select c.budget.currency, avg(c.budget.amount) from CHIMPUM c group by c.budget.currency")
-	List<String> averageBudgetOfCHIMPUMPSGroupedByCurrency();
+	@Query("select c.quota.currency, avg(c.quota.amount) from BULET c group by c.quota.currency")
+	List<String> averageBudgetOfBULETGroupedByCurrency();
 	
-	@Query("select c.budget.currency, stddev(c.budget.amount) from CHIMPUM c group by c.budget.currency")
-	List<String> deviationBudgetOfCHIMPUMPSGroupedByCurrency();
+	@Query("select c.quota.currency, stddev(c.quota.amount) from BULET c group by c.quota.currency")
+	List<String> deviationBudgetOfBULETGroupedByCurrency();
 	
-	@Query("select c.budget.currency, min(c.budget.amount) from CHIMPUM c group by c.budget.currency")
-	List<String> minimumBudgetOfCHIMPUMPSGroupedByCurrency();
+	@Query("select c.quota.currency, min(c.quota.amount) from BULET c group by c.quota.currency")
+	List<String> minimumBudgetOfBULETGroupedByCurrency();
 	
-	@Query("select c.budget.currency, max(c.budget.amount) from CHIMPUM c group by c.budget.currency")
-	List<String> maximumBudgetOfCHIMPUMPSGroupedByCurrency();
+	@Query("select c.quota.currency, max(c.quota.amount) from BULET c group by c.quota.currency")
+	List<String> maximumBudgetOfBULETGroupedByCurrency();
 	
 	// Others -------------------------------
 	

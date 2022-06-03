@@ -1,4 +1,4 @@
-package acme.entities.CHIMPUM;
+package acme.entities.BULET;
 
 
 import java.text.SimpleDateFormat;
@@ -25,7 +25,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class CHIMPUM extends AbstractEntity {
+public class BULET extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -39,17 +39,17 @@ public class CHIMPUM extends AbstractEntity {
 	@Column(unique = false)
 	//@Pattern(regexp="^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$") //dd/mm/yyyy
 	//@Pattern(regexp="^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}-(0|[1-9][0-9]?|100)$")
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
-	protected String				pattern;
+	@Pattern(regexp = "^/\\w{2,4}$")
+	protected String				code;
 	
 
 	@NotBlank
 	@Length(max=100)
-	protected String				title;
+	protected String				name;
 	
 	@NotBlank
 	@Length(max=255)
-	protected String				description;
+	protected String				summary;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
@@ -66,7 +66,7 @@ public class CHIMPUM extends AbstractEntity {
 	
 	@Valid
 	@NotNull
-	protected Money 			budget;
+	protected Money 			quota;
 
 	@URL
 	protected String				link;
@@ -76,7 +76,7 @@ public class CHIMPUM extends AbstractEntity {
 	public String getPatternDate() {
 		
 		final String date = new SimpleDateFormat("dd/MM/yyyy").format(this.creationMoment);
-		return this.pattern.concat("-").concat(date);
+		return date.concat(this.code);
 	}
 	
 	
