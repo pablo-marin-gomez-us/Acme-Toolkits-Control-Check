@@ -21,7 +21,7 @@ public class InventorBuletUpdateTest extends TestHarness {
 		
 		super.signIn("inventor1", "inventor1");
 		
-		super.clickOnMenu("Inventor", "List bulet");
+		super.clickOnMenu("Inventor", "List bulets");
 		super.checkListingExists();
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
@@ -55,7 +55,7 @@ public class InventorBuletUpdateTest extends TestHarness {
 		super.checkNotErrorsExist();
 		super.sortListing(1, "desc");
 		
-		super.clickOnMenu("Inventor", "List bulet");
+		super.clickOnMenu("Inventor", "List bulets");
 		super.checkListingExists();
 		
 		super.checkColumnHasValue(recordIndex, 1, name);
