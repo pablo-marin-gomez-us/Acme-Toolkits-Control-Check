@@ -1,2 +1,2 @@
-recordIndex,pattern,title,description,creationMoment,startDate,finishDate,budget,link
+recordIndex,code,name,summary,creationMoment,startDate,finishDate,quota,link
 0,ABC-005-A,Amazing CHIMPUM 5,Is Amazing at best,2022/05/20 12:00,2022/07/21 12:00,2022/08/01 12:00,EUR 60.00,https://www.google.com

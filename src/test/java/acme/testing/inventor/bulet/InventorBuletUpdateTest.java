@@ -1,4 +1,4 @@
-package acme.testing.inventor.chimpum;
+package acme.testing.inventor.bulet;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,22 +11,22 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class InventorChimpumUpdateTest extends TestHarness {
+public class InventorBuletUpdateTest extends TestHarness {
 	
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/chimpum/update.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/inventor/bulet/update.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positive(final int recordIndex, final String pattern, final String title, final String description, final String creationMoment, final String startDate, final String finishDate, final String budget, final String link) {
+	public void positive(final int recordIndex, final String code, final String name, final String summary, final String creationMoment, final String startDate, final String finishDate, final String quota, final String link) {
 		
 		super.signIn("inventor1", "inventor1");
 		
-		super.clickOnMenu("Inventor", "List chimpums");
+		super.clickOnMenu("Inventor", "List bulet");
 		super.checkListingExists();
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("description", description);
+		super.fillInputBoxIn("name", name);
+		super.fillInputBoxIn("summary", summary);
 		
 		Calendar calendar;
 		
@@ -47,9 +47,7 @@ public class InventorChimpumUpdateTest extends TestHarness {
 		super.fillInputBoxIn("startDate", newStartDate);
 		super.fillInputBoxIn("finishDate", newEndtDate);
 		
-		super.fillInputBoxIn("startDate", startDate);
-		super.fillInputBoxIn("finishDate", finishDate);
-		super.fillInputBoxIn("budget", budget);
+		super.fillInputBoxIn("quota", quota);
 		super.fillInputBoxIn("link", link);
 		
 		super.clickOnSubmit("Update");
@@ -57,33 +55,33 @@ public class InventorChimpumUpdateTest extends TestHarness {
 		super.checkNotErrorsExist();
 		super.sortListing(1, "desc");
 		
-		super.clickOnMenu("Inventor", "List chimpums");
+		super.clickOnMenu("Inventor", "List bulet");
 		super.checkListingExists();
 		
-		super.checkColumnHasValue(recordIndex, 1, title);
-		super.checkColumnHasValue(recordIndex, 2, description);
+		super.checkColumnHasValue(recordIndex, 1, name);
+		super.checkColumnHasValue(recordIndex, 2, summary);
 		super.checkColumnHasValue(recordIndex, 3, startDate);		
 		super.checkColumnHasValue(recordIndex, 4, finishDate);
-		super.checkColumnHasValue(recordIndex, 5, budget);	
+		super.checkColumnHasValue(recordIndex, 5, quota);	
 		super.checkColumnHasValue(recordIndex, 6, link);	
 	}
 	
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/chimpum/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/inventor/bulet/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void negative(final int recordIndex, final String pattern, final String title, final String description, final String creationMoment, final String startDate, final String finishDate, final String budget, final String link) {
+	public void negative(final int recordIndex, final String code, final String name, final String summary, final String creationMoment, final String startDate, final String finishDate, final String quota, final String link) {
 		
 		super.signIn("inventor1", "inventor1");
 		
-		super.clickOnMenu("Inventor", "List chimpums");
+		super.clickOnMenu("Inventor", "List bulets");
 		super.checkListingExists();
 		super.clickOnListingRecord(0);
 		super.checkFormExists();
-		super.fillInputBoxIn("title", title);
-		super.fillInputBoxIn("description", description);
+		super.fillInputBoxIn("name", name);
+		super.fillInputBoxIn("summary", summary);
 		super.fillInputBoxIn("startDate", startDate);
 		super.fillInputBoxIn("finishDate", finishDate);
-		super.fillInputBoxIn("budget", budget);
+		super.fillInputBoxIn("quota", quota);
 		super.fillInputBoxIn("link", link);
 		
 		super.clickOnSubmit("Update");

@@ -131,7 +131,7 @@ public class InventorBULETUpdateService  implements AbstractUpdateService<Invent
 					break;
 			}
 			
-			errors.state(request, entity.getQuota().getAmount() > 0 , "quota", "inventor.BULET.form.error.negative-budget");
+			errors.state(request, entity.getQuota().getAmount() > 0 , "quota", "inventor.BULET.form.error.negative-quota");
 			errors.state(request,acceptedCurrency, "quota", "inventor.BULET.form.error.negative-currency");
 		}
 		

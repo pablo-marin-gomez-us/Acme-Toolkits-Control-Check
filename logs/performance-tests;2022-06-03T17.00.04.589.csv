@@ -1,0 +1,4 @@
+timestamp,test-class,test-method,time,description,result
+"2022-06-03 16:59:28.098","acme.testing.inventor.bulet.InventorBuletListTest","positive",7572,""[1] recordIndex=0, code=19/05/2022/a0F, name=Amazing CHIMPUM, summary=Is Amazing at best, creationMoment=2022/05/19 12:00, startDate=2022/06/20 12:00, finishDate=2022/07/01 12:00, quota=EUR 60.00, link=https://www.google.com"","OK"
+"2022-06-03 16:59:33.485","acme.testing.inventor.bulet.InventorBuletListTest","positive",4828,""[2] recordIndex=1, code=20/05/2022/oHQ, name=Amazing CHIMPUM 2, summary=Is Amazing at best yeah, creationMoment=2022/05/20 12:00, startDate=2022/06/20 12:00, finishDate=2022/07/01 12:00, quota=EUR 200.00, link=https://www.google.com"","OK"
+"2022-06-03 16:59:34.743","acme.testing.inventor.bulet.InventorBuletListTest","hacking",794,""hacking()"","OK"

@@ -3,7 +3,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form readonly="${readOnly}">
-	<h2><acme:message code="inventor.CHIMPUM.message.CHIMPUM"/></h2>
+	<h2><acme:message code="inventor.BULET.message.BULET"/></h2>
 	
 	<acme:input-textbox code="inventor.BULET.form.label.code" path="code" readonly="${acme:anyOf(command, 'show, update')}"/>
 	<acme:input-textbox code="inventor.BULET.form.label.name" path="name"/>

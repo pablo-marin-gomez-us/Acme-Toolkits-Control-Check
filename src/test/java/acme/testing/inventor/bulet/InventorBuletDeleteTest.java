@@ -1,11 +1,11 @@
-package acme.testing.inventor.chimpum;
+package acme.testing.inventor.bulet;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import acme.testing.TestHarness;
 
-public class InventorChimpumDeleteTest extends TestHarness {
+public class InventorBuletDeleteTest extends TestHarness {
 	
 	
 	@Test
@@ -14,7 +14,7 @@ public class InventorChimpumDeleteTest extends TestHarness {
 		
 		super.signIn("inventor1", "inventor1");
 		
-		super.clickOnMenu("Inventor", "List chimpums");
+		super.clickOnMenu("Inventor", "List bulets");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.clickOnListingRecord(0);
@@ -26,7 +26,7 @@ public class InventorChimpumDeleteTest extends TestHarness {
 	@Order(20)
 	public void hacking() {
 		
-		super.navigate("/inventor/chimpum/list");
+		super.navigate("/inventor/bulet/list");
 		super.checkErrorsExist();
 		
 	}
